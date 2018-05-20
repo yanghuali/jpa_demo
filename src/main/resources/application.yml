@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  context-path: /
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jpa?charset=utf8mb4&serverTimezone=UTC
+    username: root
+    password: mysql123
+    tomcat:
+      max-active: 20
+      test-while-idle: true
+      validation-query: select 1
+      default-auto-commit: false
+      min-idle: 15
+      initial-size: 15
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+  jackson:
+    serialization:
+      indent-output: true
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML5
+  resources:
+    static-locations: classpath:/static/
